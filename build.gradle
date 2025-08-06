@@ -20,6 +20,7 @@ dependencies {
     api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
 }
 
 
@@ -46,7 +47,7 @@ java {
 
 group = 'com.devin'
 
-version = '0.0.9'
+version = '0.1.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -77,11 +78,11 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.devin'
             artifactId = 'devin-java'
-            version = '0.0.9'
+            version = '0.1.0'
             from components.java
             pom {
-                name = 'devin'
-                description = 'The official SDK of devin'
+                name = 'devintest'
+                description = 'The official SDK of devintest'
                 url = 'https://buildwithfern.com'
                 licenses {
                     license {
@@ -91,8 +92,8 @@ publishing {
                 }
                 developers {
                     developer {
-                        name = 'devin'
-                        email = 'developers@devin.com'
+                        name = 'devintest'
+                        email = 'developers@devintest.com'
                     }
                 }
                 scm {

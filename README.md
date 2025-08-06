@@ -1,9 +1,9 @@
-# Devin Java Library
+# Devintest Java Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fdevalog%2Fcompany-java)
 [![Maven Central](https://img.shields.io/maven-central/v/com.devin/devin-java)](https://central.sonatype.com/artifact/com.devin/devin-java)
 
-The Devin Java library provides convenient access to the Devin API from Java.
+The Devintest Java library provides convenient access to the Devintest API from Java.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.devin</groupId>
   <artifactId>devin-java</artifactId>
-  <version>0.0.9</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -36,12 +36,12 @@ Instantiate and use the client with the following:
 ```java
 package com.example.usage;
 
-import com.devin.api.DevinApiClient;
-import com.devin.api.resources.imdb.types.CreateMovieRequest;
+import com.devintest.api.DevintestApiClient;
+import com.devintest.api.resources.imdb.types.CreateMovieRequest;
 
 public class Example {
     public static void main(String[] args) {
-        DevinApiClient client = DevinApiClient
+        DevintestApiClient client = DevintestApiClient
             .builder()
             .build();
 
@@ -61,9 +61,9 @@ public class Example {
 You can set a custom base URL when constructing the client.
 
 ```java
-import com.devin.api.DevinApiClient;
+import com.devintest.api.DevintestApiClient;
 
-DevinApiClient client = DevinApiClient
+DevintestApiClient client = DevintestApiClient
     .builder()
     .url("https://example.com")
     .build();
@@ -74,11 +74,11 @@ DevinApiClient client = DevinApiClient
 When the API returns a non-success status code (4xx or 5xx response), an API exception will be thrown.
 
 ```java
-import com.devin.api.core.DevinApiApiException;
+import com.devintest.api.core.DevintestApiApiException;
 
 try {
     client.imdb().createMovie(...);
-} catch (DevinApiApiException e) {
+} catch (DevintestApiApiException e) {
     // Do something with the API exception...
 }
 ```
@@ -91,12 +91,12 @@ This SDK is built to work with any instance of `OkHttpClient`. By default, if no
 However, you can pass your own client like so:
 
 ```java
-import com.devin.api.DevinApiClient;
+import com.devintest.api.DevintestApiClient;
 import okhttp3.OkHttpClient;
 
 OkHttpClient customClient = ...;
 
-DevinApiClient client = DevinApiClient
+DevintestApiClient client = DevintestApiClient
     .builder()
     .httpClient(customClient)
     .build();
@@ -117,9 +117,9 @@ A request is deemed retryable when any of the following HTTP status codes is ret
 Use the `maxRetries` client option to configure this behavior.
 
 ```java
-import com.devin.api.DevinApiClient;
+import com.devintest.api.DevintestApiClient;
 
-DevinApiClient client = DevinApiClient
+DevintestApiClient client = DevintestApiClient
     .builder()
     .maxRetries(1)
     .build();
@@ -130,11 +130,11 @@ DevinApiClient client = DevinApiClient
 The SDK defaults to a 60 second timeout. You can configure this with a timeout option at the client or request level.
 
 ```java
-import com.devin.api.DevinApiClient;
-import com.devin.api.core.RequestOptions;
+import com.devintest.api.DevintestApiClient;
+import com.devintest.api.core.RequestOptions;
 
 // Client level
-DevinApiClient client = DevinApiClient
+DevintestApiClient client = DevintestApiClient
     .builder()
     .timeout(10)
     .build();
