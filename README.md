@@ -25,7 +25,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>io.github.devalog</groupId>
   <artifactId>devin-java</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
