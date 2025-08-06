@@ -1,7 +1,7 @@
 # Devintest Java Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fdevalog%2Fcompany-java)
-[![Maven Central](https://img.shields.io/maven-central/v/com.devin/devin-java)](https://central.sonatype.com/artifact/com.devin/devin-java)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.devalog/devin-java)](https://central.sonatype.com/artifact/io.github.devalog/devin-java)
 
 The Devintest Java library provides convenient access to the Devintest API from Java.
 
@@ -13,7 +13,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.devin:devin-java'
+  implementation 'io.github.devalog:devin-java'
 }
 ```
 
@@ -23,9 +23,9 @@ Add the dependency in your `pom.xml` file:
 
 ```xml
 <dependency>
-  <groupId>com.devin</groupId>
+  <groupId>io.github.devalog</groupId>
   <artifactId>devin-java</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
