@@ -32,10 +32,10 @@ public final class ClientOptions {
         this.headers.putAll(headers);
         this.headers.putAll(new HashMap<String, String>() {
             {
-                put("User-Agent", "com.devin:devin-java/0.0.3");
+                put("User-Agent", "com.devin:devin-java/0.0.9");
                 put("X-Fern-Language", "JAVA");
                 put("X-Fern-SDK-Name", "com.devin.fern:api-sdk");
-                put("X-Fern-SDK-Version", "0.0.3");
+                put("X-Fern-SDK-Version", "0.0.9");
             }
         });
         this.headerSuppliers = headerSuppliers;

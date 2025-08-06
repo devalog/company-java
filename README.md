@@ -25,7 +25,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.devin</groupId>
   <artifactId>devin-java</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.9</version>
 </dependency>
 ```
 
