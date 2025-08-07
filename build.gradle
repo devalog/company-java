@@ -47,7 +47,7 @@ java {
 
 group = 'io.github.devalog'
 
-version = '3.0.2'
+version = '3.0.4'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
