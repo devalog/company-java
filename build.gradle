@@ -47,7 +47,7 @@ java {
 
 group = 'io.github.devalog'
 
-version = '3.0.4'
+version = '3.0.5'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -107,9 +107,9 @@ sonatypeCentralUpload {
     password = System.env.MAVEN_PASSWORD
 
     archives = files(
-        "$buildDir/libs/devin-java-" + version + ".jar",
-        "$buildDir/libs/devin-java-" + version + "-sources.jar",
-        "$buildDir/libs/devin-java-" + version + "-javadoc.jar"
+        jar.archiveFile,
+        sourcesJar.archiveFile, 
+        javadocJar.archiveFile
     )
 
     pom = file("$buildDir/publications/maven/pom-default.xml")
