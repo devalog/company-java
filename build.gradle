@@ -47,7 +47,7 @@ java {
 
 group = 'io.github.devalog'
 
-version = '3.0.5'
+version = '3.0.6'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -62,6 +62,10 @@ javadocJar {
     archiveBaseName = "devin-java"
 }
 
+signing {
+    sign(publishing.publications)
+}
+
 test {
     useJUnitPlatform()
     testLogging {
@@ -74,7 +78,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'io.github.devalog'
             artifactId = 'devin-java'
-            version = '3.0.2'
+            version = '3.0.6'
             from components.java
             pom {
                 name = 'devintest'
@@ -103,25 +107,24 @@ publishing {
 }
 
 sonatypeCentralUpload {
-    username = System.env.MAVEN_USERNAME
-    password = System.env.MAVEN_PASSWORD
+    username = "$System.env.MAVEN_USERNAME"
+    password = "$System.env.MAVEN_PASSWORD"
 
     archives = files(
-        jar.archiveFile,
-        sourcesJar.archiveFile, 
-        javadocJar.archiveFile
+        "$buildDir/libs/devin-java-" + version + ".jar",
+        "$buildDir/libs/devin-java-" + version + "-sources.jar",
+        "$buildDir/libs/devin-java-" + version + "-javadoc.jar"
     )
 
     pom = file("$buildDir/publications/maven/pom-default.xml")
-    signingKey = System.env.MAVEN_SIGNATURE_SECRET_KEY
-    signingKeyPassphrase = System.env.MAVEN_SIGNATURE_PASSWORD
+    signingKey = "$System.env.MAVEN_SIGNATURE_SECRET_KEY"
+    signingKeyPassphrase = "$System.env.MAVEN_SIGNATURE_PASSWORD"
 }
 
 signing {
-    def signingKeyId = System.env.MAVEN_SIGNATURE_SECRET_KEY_ID
-    def signingKey = System.env.MAVEN_SIGNATURE_SECRET_KEY
-    def signingPassword = System.env.MAVEN_SIGNATURE_PASSWORD
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+    def signingKeyId = "$System.env.MAVEN_SIGNATURE_SECRET_KEY"
+    def signingPassword = "$System.env.MAVEN_SIGNATURE_PASSWORD"
+    useInMemoryPgpKeys(signingKeyId, signingPassword)
     sign publishing.publications.maven
 }
 
