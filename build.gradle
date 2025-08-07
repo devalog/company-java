@@ -62,10 +62,6 @@ javadocJar {
     archiveBaseName = "devin-java"
 }
 
-signing {
-    sign(publishing.publications)
-}
-
 test {
     useJUnitPlatform()
     testLogging {
@@ -107,8 +103,8 @@ publishing {
 }
 
 sonatypeCentralUpload {
-    username = $System.env.MAVEN_USERNAME
-    password = $System.env.MAVEN_PASSWORD
+    username = System.env.MAVEN_USERNAME
+    password = System.env.MAVEN_PASSWORD
 
     archives = files(
         "$buildDir/libs/devin-java-" + version + ".jar",
@@ -117,15 +113,15 @@ sonatypeCentralUpload {
     )
 
     pom = file("$buildDir/publications/maven/pom-default.xml")
-    signingKey = $System.env.MAVEN_SIGNATURE_SECRET_KEY
-    signingKeyPassphrase = $System.env.MAVEN_SIGNATURE_PASSWORD
+    signingKey = System.env.MAVEN_SIGNATURE_SECRET_KEY
+    signingKeyPassphrase = System.env.MAVEN_SIGNATURE_PASSWORD
 }
 
 signing {
-    def signingKeyId = System.env.MAVEN_SIGNATURE_SECRET_KEY_ID      # Correct variable
-    def signingKey = System.env.MAVEN_SIGNATURE_SECRET_KEY           # Add the actual key
+    def signingKeyId = System.env.MAVEN_SIGNATURE_SECRET_KEY_ID
+    def signingKey = System.env.MAVEN_SIGNATURE_SECRET_KEY
     def signingPassword = System.env.MAVEN_SIGNATURE_PASSWORD
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)    # All 3 parameters
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
     sign publishing.publications.maven
 }
 
